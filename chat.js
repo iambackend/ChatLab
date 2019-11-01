@@ -1,8 +1,24 @@
 const mongo = require('mongodb').MongoClient;
 const client = require('socket.io').listen(4000).sockets;
+// this code was copypasted from stackoverflow
+const http = require('http');
+const fs = require('fs');
 
+
+fs.readFile('./index.html', function (err, html) {
+    if (err) {
+        throw err;
+    }
+    http.createServer(function(request, response) {
+        response.writeHeader(200, {"Content-Type": "text/html"});
+        response.write(html);
+        response.end();
+    }).listen(80);
+});
+
+// this code was copypasted from bradtraversy/mongochat
 // Connect to mongo
-mongo.connect('mongodb://127.0.0.1/mongochat', function(err, db){
+mongo.connect('mongodb://127.0.0.1/rs0', function(err, db){
     if(err){
         throw err;
     }
