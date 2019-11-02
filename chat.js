@@ -3,7 +3,7 @@ const client = require('socket.io').listen(4000).sockets;
 // this code was copypasted from stackoverflow
 const http = require('http');
 const fs = require('fs');
-
+const format = require('util').format;
 
 fs.readFile('./index.html', function (err, html) {
     if (err) {
@@ -18,7 +18,14 @@ fs.readFile('./index.html', function (err, html) {
 
 // this code was copypasted from bradtraversy/mongochat
 // Connect to mongo
-mongo.connect('mongodb://127.0.0.1/rs0', function(err, db){
+var url = format("mongodb://%s,%s,%s/%s?replicaSet=%s&readPreference=%s"
+  , "172.31.36.100:27017"
+  , "172.31.46.56:27017"
+  , "172.31.41.247:27017"
+  , "mongochat"
+  , "rs0"
+  , "secondaryPreferred");
+mongo.connect(url, function(err, db){
     if(err){
         throw err;
     }
@@ -28,6 +35,8 @@ mongo.connect('mongodb://127.0.0.1/rs0', function(err, db){
     // Connect to Socket.io
     client.on('connection', function(socket){
         let chat = db.collection('chats');
+	
+	//return 0;
 
         // Create function to send status
         sendStatus = function(s){
