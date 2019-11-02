@@ -1,5 +1,5 @@
 # ChatLab
-##rs.status 1
+## rs.status 1
 ```{
 	"set" : "rs0",
 	"date" : ISODate("2019-11-02T08:52:07.544Z"),
@@ -146,7 +146,7 @@
 	"operationTime" : Timestamp(1572684721, 1)
 }
 ```
-##rs.config 1
+## rs.config 1
 ```
 {
 	"_id" : "rs0",
@@ -212,7 +212,7 @@
 	}
 }
 ```
-##rs.status 2
+## rs.status 2
 ```
 {
 	"set" : "rs0",
@@ -341,7 +341,7 @@
 	"operationTime" : Timestamp(1572685024, 1)
 }
 ```
-##rs.config 2
+## rs.config 2
 ```
 {
 	"_id" : "rs0",
@@ -407,6 +407,6 @@
 	}
 }
 ```
-##Screenshots
+## Screenshots
 ![](https://raw.githubusercontent.com/iambackend/ChatLab/master/screen1.png)
 ![](https://raw.githubusercontent.com/iambackend/ChatLab/master/screen2.png)
